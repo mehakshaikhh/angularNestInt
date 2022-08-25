@@ -1,0 +1,10 @@
+<nav *ngIf = "isUserLoggedIn;else userLoggedOut" class="nav justify-content-end navbar-expand-lg bg-dark">
+    <a  class="nav-item nav-link link-light" *ngIf = "currentUser">Welcome, {{currentUser.firstName}}</a> <div class="nav-item nav-link link-light">|</div>
+    <a style="cursor: pointer" (click)="logout()" class="nav-item nav-link link-light">Logout</a> 
+</nav>
+
+<ng-template #userLoggedOut>
+    <nav class="nav justify-content-end navbar-expand-lg bg-dark">
+        <a [routerLink]="getRoute(getNavLink())" class="nav-item nav-link link-light">{{getNavLink()}}</a>    
+    </nav>
+</ng-template>

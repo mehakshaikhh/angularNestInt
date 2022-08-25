@@ -1,0 +1,33 @@
+
+<div class="container">
+    <div class="row mt-4 pt-4">
+        <div class="col col-md-4 offset-sm-4" style="max-height: 100vh">
+            <form [formGroup]="loginForm"  class="form-group" (ngSubmit)="onSubmit()">
+                <div *ngIf="loginForm.controls['email'].invalid && (loginForm.controls['email'].dirty || loginForm.controls['email'].touched)" class="text-danger">
+                    <div *ngIf="loginForm.controls['email'].errors?.['required']">
+                        Please enter Email
+                    </div>
+                    <div *ngIf="loginForm.controls['email'].errors?.['email']">
+                        Invalid Email
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email: </label>
+                    <input id="email" type="text" class="form-control" formControlName="email">
+                </div>
+                <div *ngIf="loginForm.controls['password'].invalid && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)" class="text-danger">
+                    <div *ngIf="loginForm.controls['password'].errors?.['required']">
+                        Please enter Password
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password: </label>
+                    <input id="password" type="password" class="form-control" formControlName="password">
+                </div>
+                <div class="col col-md-4 offset-sm-5">
+                    <button class=" btn btn-dark">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

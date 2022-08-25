@@ -1,0 +1,66 @@
+
+<div class="container">
+    <div class="row mt-4 pt-4">
+        <div class="col col-md-4 offset-sm-4" style="max-height: 100vh">
+            <form [formGroup]="registerForm"  class="form-group" (ngSubmit)="onSubmit()">
+                <div *ngIf="registerForm.controls['firstName'].invalid && (registerForm.controls['firstName'].dirty || registerForm.controls['firstName'].touched)" class="text-danger">
+                    <div *ngIf="registerForm.controls['firstName'].errors?.['required']">
+                        Please enter First Name
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="firstName" class="form-label">First Name: </label>
+                    <input id="firstName" type="text" class="form-control" formControlName="firstName">
+                </div>
+                <div *ngIf="registerForm.controls['lastName'].invalid && (registerForm.controls['lastName'].dirty || registerForm.controls['lastName'].touched)" class="text-danger">
+                    <div *ngIf="registerForm.controls['lastName'].errors?.['required']">
+                        Please enter Last Name
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="lastName" class="form-label">Last Name: </label>
+                    <input id="lastName" type="text" class="form-control" formControlName="lastName">
+                </div>
+                <div *ngIf="registerForm.controls['email'].invalid && (registerForm.controls['email'].dirty || registerForm.controls['email'].touched)" class="text-danger">
+                    <div *ngIf="registerForm.controls['email'].errors?.['required']">
+                        Please enter Email
+                    </div>
+                    <div *ngIf="registerForm.controls['email'].errors?.['email']">
+                        Invalid Email
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email: </label>
+                    <input id="email" type="text" class="form-control" formControlName="email">
+                </div>
+                <div *ngIf="registerForm.controls['password'].invalid && (registerForm.controls['password'].dirty || registerForm.controls['password'].touched)" class="text-danger">
+                    <div *ngIf="registerForm.controls['password'].errors?.['required']">
+                        Please enter Password
+                    </div>
+                    <div *ngIf="registerForm.controls['password'].errors?.['minlength']">
+                        Please enter atleast 8 chars
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password: </label>
+                    <input id="password" type="password" class="form-control" formControlName="password">
+                </div>
+                <div *ngIf="registerForm.controls['confirmPassword'].invalid && (registerForm.controls['confirmPassword'].dirty || registerForm.controls['confirmPassword'].touched)" class="text-danger">
+                    <div *ngIf="registerForm.controls['confirmPassword'].errors?.['required']">
+                        Please enter Confirm Password
+                    </div>
+                    <div *ngIf="registerForm.controls['confirmPassword'].errors?.['passwordMismatch']">
+                        Password Mismatched
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="confirmPassword" class="form-label">Confirm Password: </label>
+                    <input id="confirmPassword" type="password" class="form-control" formControlName="confirmPassword">
+                </div>
+                <div class="col col-md-4 offset-sm-5">
+                    <button class="btn btn-dark">Sign Up</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
